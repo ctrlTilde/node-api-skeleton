@@ -2,18 +2,23 @@ version: '3'
 
 services:
   postgres:
+    build:
+      context: postgres
+    command: >
+      -c ssl=on
+      -c ssl_cert_file=/var/lib/postgresql/server.crt
+      -c ssl_key_file=/var/lib/postgresql/server.key
     restart: always
-    image: postgres:alpine
     env_file: ./.env
     environment:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASS
       POSTGRES_DB: $DB_NAME
-    expose: 
+    expose:
       - "5432"
     volumes:
       - data:/var/lib/postgresql/data
-      
+
   redis:
     container_name: redis-cache
     image: redis
@@ -26,7 +31,7 @@ services:
     restart: always
     build: ./node_api
     container_name: node_api
-    expose: 
+    expose:
       - "8080"
     command: yarn start
     depends_on:
@@ -51,14 +56,14 @@ services:
 volumes:
   data:
     external: false
- 
 
 
 
 
 
-    
 
-    
-    
-  
+
+
+
+
+
