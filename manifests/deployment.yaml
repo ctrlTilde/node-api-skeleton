@@ -6,6 +6,10 @@ metadata:
   namespace: nodeapi
   labels:
     app: nodeapi
+  annotations:
+    keel.sh/policy: force
+    keel.sh/trigger: poll      
+    keel.sh/pollSchedule: "@every 10m"
 spec:
   replicas: 1
   selector:
