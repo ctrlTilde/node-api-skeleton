@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapi
+  namespace: nodeapi
+  labels:
+    app: nodeapi
+  annotations:
+    # Note that the backend talks over HTTP.
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    # TODO: UPDATE THE CERTifiCATE ARN BELOW
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:${aws-region}:${aws-account-id}:certificate/${acm-certificate-serial}
+    # Only run SSL on the port named "https" below.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      name: http
+      targetPort: 8080
+    - name: https
+      port: 443
+      targetPort: 8080
+  selector:
+    app: nodeapi

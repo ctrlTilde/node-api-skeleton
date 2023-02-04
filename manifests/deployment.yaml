@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapi
+  namespace: nodeapi
+  labels:
+    app: nodeapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapi
+  template:
+    metadata:
+      labels:
+        app: nodeapi
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+        - name: nodeapi
+          image: ghcr.io/ctrltilde/node-api-skeleton:master
+          ports:
+            - name: http
+              containerPort: 8080
