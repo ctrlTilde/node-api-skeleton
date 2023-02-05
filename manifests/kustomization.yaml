@@ -4,6 +4,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - namespace.yaml
+  - ingress-routes.yaml
 namespace: nodeapi
 images:
   - name: nodeapi-argocd

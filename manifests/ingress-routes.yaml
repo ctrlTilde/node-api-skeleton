@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-routes
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+#change to your domain
+    - api.dnsmaestro.io
+    secretName: tls-secret
+  rules:
+#change to your domain
+  - host: api.dnsmaestro.io
+    http:
+      paths:
+        - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nodeapi
+            port:
+              number: 80
