@@ -7,18 +7,16 @@ metadata:
 spec:
   tls:
   - hosts:
-#change to your domain
     - api.dnsmaestro.io
     secretName: tls-secret
   rules:
-#change to your domain
   - host: api.dnsmaestro.io
     http:
       paths:
         - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: nodeapi
-              port:
-                number: 8080
+        pathType: Prefix
+        backend:
+          service:
+            name: nodeapi
+            port:
+              number: 8080
