@@ -7,6 +7,7 @@ metadata:
   labels:
     app: nodeapi
   annotations:
+    acme/certificate: api.dnsmaestro.io
     # Note that the backend talks over HTTP.
     # service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
     # TODO: UPDATE THE CERTifiCATE ARN BELOW
@@ -24,4 +25,4 @@ spec:
       port: 443
       targetPort: 8080
   selector:
-    app: nodeapi-deployment
+    app: nodeapi
