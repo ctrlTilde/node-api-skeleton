@@ -7,6 +7,6 @@ resources:
   - ingress-routes.yaml
 namespace: nodeapi
 images:
-  - name: nodeapi-argocd
+  - name: nodeapi
     newName: nodeapi-argocd
     newTag: v1
