@@ -21,7 +21,8 @@ spec:
       containers:
         - name: nodeapi
           image: ghcr.io/ctrltilde/node-api-skeleton:master
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
-        imagePullPolicy: Always
+        
