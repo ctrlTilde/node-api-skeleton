@@ -10,11 +10,11 @@ spec:
     - api.dnsmaestro.io
     secretName: tls-secret
   rules:
-  - host: api.dnsmaestro.io
+  - host: "api.dnsmaestro.io"
     http:
       paths:
-        - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/"
         backend:
           service:
             name: nodeapi
