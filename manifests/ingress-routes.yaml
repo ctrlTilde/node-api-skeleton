@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
       - api.dnsmaestro.io
-    secretName: tls-secret
+    secretName: api.dnsmaestro.com-tls
   rules:
   - host: api.dnsmaestro.io
     http:
