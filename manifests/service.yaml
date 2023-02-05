@@ -14,6 +14,7 @@ metadata:
     # Only run SSL on the port named "https" below.
     # service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
 spec:
+  loadBalancerIP: 85.10.227.217
   type: LoadBalancer
   ports:
     - port: 80

@@ -2,10 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapi
+  name: nodeapi-deployment
   namespace: nodeapi
   labels:
-    app: nodeapi
+    app: nodeapi-deployment
 spec:
   replicas: 1
   selector:
