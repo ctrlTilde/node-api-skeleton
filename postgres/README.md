@@ -1,4 +1,5 @@
-# Key Generation with openssl
+# Postgres with SSL Support
+## Key Generation with openssl
 
 ```bash
 openssl req -new -text -passout pass:abcd -subj /CN=localhost -out server.req -keyout privkey.pem
